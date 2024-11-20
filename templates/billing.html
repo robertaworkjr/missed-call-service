@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Billing{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            Billing
+        </h2>
+        {% if not current_user.has_paid %}
+            {% if trial_days_left > 0 %}
+                <p class="mt-2 text-center text-sm text-gray-600">
+                    You have {{ trial_days_left }} days left in your trial
+                </p>
+            {% else %}
+                <p class="mt-2 text-center text-sm text-red-600">
+                    Your trial has expired
+                </p>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="mb-4 p-4 rounded-md {% if category == 'error' %}bg-red-50 text-red-700{% else %}bg-green-50 text-green-700{% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            {% if current_user.has_paid %}
+                <div class="bg-green-50 p-4 rounded-md">
+                    <p class="text-green-700">You have lifetime access to all features!</p>
+                </div>
+            {% else %}
+                <div class="bg-white rounded-lg overflow-hidden">
+                    <div class="px-6 py-8">
+                        <h3 class="text-center text-3xl font-bold text-gray-900">Lifetime Access</h3>
+                        <div class="mt-4 flex justify-center">
+                            <span class="px-3 py-1 text-xl font-semibold text-gray-900">${{ "%.2f"|format(lifetime_price) }}</span>
+                        </div>
+                        <p class="mt-4 text-center text-gray-500">One-time payment for unlimited access</p>
+                    </div>
+                    <div class="px-6 pt-6 pb-8">
+                        <ul class="mt-6 space-y-4">
+                            <li class="flex space-x-3">
+                                <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-gray-500">Unlimited missed call responses</span>
+                            </li>
+                            <li class="flex space-x-3">
+                                <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-gray-500">Custom SMS templates</span>
+                            </li>
+                            <li class="flex space-x-3">
+                                <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-gray-500">Business hours configuration</span>
+                            </li>
+                            <li class="flex space-x-3">
+                                <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-gray-500">Priority support</span>
+                            </li>
+                        </ul>
+                        <form action="{{ url_for('billing') }}" method="POST" class="mt-8">
+                            <button type="submit"
+                                class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Get Lifetime Access
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+<div class="bg-white shadow overflow-hidden sm:rounded-lg">
+    <div class="px-4 py-5 sm:px-6">
+        <h3 class="text-lg leading-6 font-medium text-gray-900">
+            Account Settings
+        </h3>
+        <p class="mt-1 max-w-2xl text-sm text-gray-500">
+            Manage your business profile and SMS settings.
+        </p>
+    </div>
+
+    <div class="border-t border-gray-200">
+        <form method="POST" class="divide-y divide-gray-200">
+            <div class="px-4 py-5 space-y-6 sm:p-6">
+                <div>
+                    <label for="business_name" class="block text-sm font-medium text-gray-700">
+                        Business Name
+                    </label>
+                    <div class="mt-1">
+                        <input type="text" name="business_name" id="business_name" 
+                               class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                               value="{{ current_user.business_name }}" readonly>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="phone_number" class="block text-sm font-medium text-gray-700">
+                        Phone Number
+                    </label>
+                    <div class="mt-1">
+                        <input type="tel" name="phone_number" id="phone_number" 
+                               class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                               value="{{ current_user.phone_number }}" readonly>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="sms_template" class="block text-sm font-medium text-gray-700">
+                        SMS Template
+                    </label>
+                    <div class="mt-1">
+                        <textarea id="sms_template" name="sms_template" rows="3" 
+                                  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md"
+                                  placeholder="Enter your SMS template message">{{ current_user.sms_template }}</textarea>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-500">
+                        You can use {business_name} as a placeholder for your business name.
+                    </p>
+                </div>
+            </div>
+
+            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                <button type="submit"
+                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Save Changes
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

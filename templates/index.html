@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="relative bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+        <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+            <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                <div class="sm:text-center lg:text-left">
+                    <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                        <span class="block">Never Miss a</span>
+                        <span class="block text-indigo-600">Business Opportunity</span>
+                    </h1>
+                    <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                        Automatically respond to missed calls with personalized SMS messages. Keep your customers engaged even when you can't answer the phone.
+                    </p>
+                    <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                        <div class="rounded-md shadow">
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                                <input type="hidden" name="cmd" value="_xclick">
+                                <input type="hidden" name="business" value="robertaworkjr@gmail.com">
+                                <input type="hidden" name="lc" value="US">
+                                <input type="hidden" name="item_name" value="MissedCallSMS Lifetime Access">
+                                <input type="hidden" name="amount" value="9.99">
+                                <input type="hidden" name="currency_code" value="USD">
+                                <input type="hidden" name="button_subtype" value="services">
+                                <input type="hidden" name="no_note" value="0">
+                                <button type="submit" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                                    Get Started - $9.99 Lifetime
+                                </button>
+                            </form>
+                        </div>
+                        <div class="mt-3 sm:mt-0 sm:ml-3">
+                            <a href="#features" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Business Communication">
+    </div>
+</div>
+
+<div id="features" class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+            <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Features</h2>
+            <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                Everything you need to manage missed calls
+            </p>
+        </div>
+
+        <div class="mt-10">
+            <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
+                <div class="relative">
+                    <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                        <i class="fas fa-mobile-alt text-xl"></i>
+                    </div>
+                    <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Instant SMS Response</p>
+                    <p class="mt-2 ml-16 text-base text-gray-500">
+                        Automatically send customized SMS messages to missed calls.
+                    </p>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                        <i class="fas fa-chart-line text-xl"></i>
+                    </div>
+                    <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Call Analytics</p>
+                    <p class="mt-2 ml-16 text-base text-gray-500">
+                        Track and analyze your missed calls with detailed reporting.
+                    </p>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                        <i class="fas fa-cog text-xl"></i>
+                    </div>
+                    <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Easy Setup</p>
+                    <p class="mt-2 ml-16 text-base text-gray-500">
+                        Get started in minutes with our simple integration process.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- How It Works Section -->
+<div class="bg-gray-50 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center mb-12">
+            <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">How It Works</h2>
+            <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                Simple 3-Step Process
+            </p>
+            <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                Never miss another business opportunity with our automated SMS response system
+            </p>
+        </div>
+
+        <div class="mt-10">
+            <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
+                <!-- Step 1 -->
+                <div class="relative bg-white p-6 rounded-lg shadow-md">
+                    <div class="absolute -top-4 left-4 h-8 w-8 rounded-full bg-indigo-600 flex items-center justify-center">
+                        <span class="text-white font-bold">1</span>
+                    </div>
+                    <div class="mt-2">
+                        <h3 class="text-lg font-medium text-gray-900">Sign Up & Configure</h3>
+                        <div class="mt-2 min-h-[100px]">
+                            <p class="text-base text-gray-500">Register your business and add your business phone number. Customize your SMS response template to match your brand voice.</p>
+                        </div>
+                        <img class="mt-4 w-full h-32 object-cover rounded-lg" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Setup Process">
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative bg-white p-6 rounded-lg shadow-md">
+                    <div class="absolute -top-4 left-4 h-8 w-8 rounded-full bg-indigo-600 flex items-center justify-center">
+                        <span class="text-white font-bold">2</span>
+                    </div>
+                    <div class="mt-2">
+                        <h3 class="text-lg font-medium text-gray-900">Missed Call Occurs</h3>
+                        <div class="mt-2 min-h-[100px]">
+                            <p class="text-base text-gray-500">When someone calls your business number and you're unable to answer, our system automatically detects the missed call.</p>
+                        </div>
+                        <img class="mt-4 w-full h-32 object-cover rounded-lg" src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Missed Call">
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative bg-white p-6 rounded-lg shadow-md">
+                    <div class="absolute -top-4 left-4 h-8 w-8 rounded-full bg-indigo-600 flex items-center justify-center">
+                        <span class="text-white font-bold">3</span>
+                    </div>
+                    <div class="mt-2">
+                        <h3 class="text-lg font-medium text-gray-900">Instant SMS Response</h3>
+                        <div class="mt-2 min-h-[100px]">
+                            <p class="text-base text-gray-500">Our system instantly sends your customized SMS message to the caller, ensuring they know their call is important and you'll get back to them soon.</p>
+                        </div>
+                        <img class="mt-4 w-full h-32 object-cover rounded-lg" src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="SMS Response">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Technical Details Section -->
+<div class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center mb-12">
+            <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Technical Details</h2>
+            <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                How Our System Works
+            </p>
+        </div>
+
+        <div class="mt-10">
+            <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+                <div class="px-6 py-8">
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-phone text-indigo-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-900">Call Forwarding Setup</h4>
+                                <p class="mt-1 text-gray-500">We provide you with instructions to forward your missed calls to our service. This can be done through your phone carrier or business phone system.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-bolt text-indigo-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-900">Instant Processing</h4>
+                                <p class="mt-1 text-gray-500">Our system instantly detects missed calls and processes them through our secure servers, ensuring no delay in response time.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-comment-dots text-indigo-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-900">SMS Delivery</h4>
+                                <p class="mt-1 text-gray-500">Using enterprise-grade SMS infrastructure, we deliver your customized message to the caller immediately after detecting the missed call.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-chart-line text-indigo-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-900">Analytics & Tracking</h4>
+                                <p class="mt-1 text-gray-500">Track all missed calls and SMS responses through your dashboard. Monitor response rates and caller patterns to optimize your business.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-gray-50 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center mb-12">
+            <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Pricing</h2>
+            <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                Simple, Transparent Pricing
+            </p>
+        </div>
+
+        <div class="max-w-lg mx-auto">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="px-6 py-8">
+                    <h3 class="text-center text-3xl font-bold text-gray-900">Lifetime Access</h3>
+                    <div class="mt-4 flex justify-center">
+                        <span class="px-3 flex items-start text-6xl tracking-tight text-gray-900">
+                            <span class="mt-2 mr-2 text-4xl font-medium">$</span>
+                            <span class="font-extrabold">9.99</span>
+                        </span>
+                    </div>
+                    <p class="mt-4 text-center text-xl text-gray-600">One-time payment</p>
+                    
+                    <div class="mt-6">
+                        <div class="rounded-md shadow">
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                                <input type="hidden" name="cmd" value="_xclick">
+                                <input type="hidden" name="business" value="robertaworkjr@gmail.com">
+                                <input type="hidden" name="lc" value="US">
+                                <input type="hidden" name="item_name" value="MissedCallSMS Lifetime Access">
+                                <input type="hidden" name="amount" value="9.99">
+                                <input type="hidden" name="currency_code" value="USD">
+                                <input type="hidden" name="button_subtype" value="services">
+                                <input type="hidden" name="no_note" value="0">
+                                <button type="submit" class="w-full flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                                    <i class="fab fa-paypal mr-2"></i> Pay with PayPal
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 pt-6 pb-8 bg-gray-50">
+                    <h4 class="text-sm font-medium text-gray-900 tracking-wide uppercase">What's included</h4>
+                    <ul class="mt-4 space-y-4">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-check text-green-500"></i>
+                            </div>
+                            <p class="ml-3 text-base text-gray-700">Unlimited SMS responses</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-check text-green-500"></i>
+                            </div>
+                            <p class="ml-3 text-base text-gray-700">Advanced analytics dashboard</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-check text-green-500"></i>
+                            </div>
+                            <p class="ml-3 text-base text-gray-700">Custom SMS templates</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-check text-green-500"></i>
+                            </div>
+                            <p class="ml-3 text-base text-gray-700">Priority support</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
