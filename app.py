@@ -93,6 +93,9 @@ class MissedCall(db.Model):
     follow_up_status = db.Column(db.String(20), default='pending')
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
+# Initialize Twilio client
+twilio_client = Client(os.getenv('TWILIO_ACCOUNT_SID'), os.getenv('TWILIO_AUTH_TOKEN'))
+
 # Index route
 @app.route('/')
 def index():
@@ -321,6 +324,61 @@ def billing():
     return render_template('billing.html', 
                          lifetime_price=9.99,
                          trial_days_left=(current_user.trial_ends_at - datetime.utcnow()).days if current_user.trial_ends_at else 0)
+
+# Twilio webhook for missed calls
+@app.route('/webhook/missed-call', methods=['POST'])
+def missed_call_webhook():
+    try:
+        # Get call details from Twilio webhook
+        caller_number = request.form.get('From', '')
+        caller_name = request.form.get('CallerName', '')
+        call_duration = request.form.get('CallDuration', 0)
+        
+        # Create missed call record
+        missed_call = MissedCall(
+            caller_number=caller_number,
+            caller_name=caller_name,
+            duration=call_duration,
+            user_id=1  # Default user ID - you'll need to map this based on the called number
+        )
+        db.session.add(missed_call)
+        db.session.commit()
+
+        # Send SMS notification
+        try:
+            message = twilio_client.messages.create(
+                body=f"Thank you for calling. We'll get back to you as soon as possible.",
+                from_=request.form.get('To'),  # The number that was called
+                to=caller_number
+            )
+            missed_call.sms_sent = True
+            missed_call.sms_status = message.status
+            missed_call.sms_sent_at = datetime.utcnow()
+            db.session.commit()
+        except Exception as e:
+            app.logger.error(f"SMS sending failed: {str(e)}")
+
+        return jsonify({'status': 'success', 'message': 'Missed call recorded'}), 200
+    except Exception as e:
+        app.logger.error(f"Webhook error: {str(e)}")
+        return jsonify({'status': 'error', 'message': str(e)}), 500
+
+# Test route for Twilio
+@app.route('/test-twilio')
+def test_twilio():
+    try:
+        # Get account info to test credentials
+        account = twilio_client.api.accounts(os.getenv('TWILIO_ACCOUNT_SID')).fetch()
+        return jsonify({
+            'status': 'success',
+            'message': 'Twilio credentials are valid',
+            'account_name': account.friendly_name
+        })
+    except Exception as e:
+        return jsonify({
+            'status': 'error',
+            'message': str(e)
+        }), 400
 
 # Login route
 @app.route('/login', methods=['GET', 'POST'])
